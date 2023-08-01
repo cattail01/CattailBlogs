@@ -8,16 +8,19 @@
 
 ### 项目环境
 
+#### 数据库
+
 * mysql 8.0.33
+* dbeaver
 * 
 
 
 
 ## todo
 
-- [ ] 安装MySQL并配置环境
-- [ ] 安装Navicat、DBeaver
-- [ ] 下载tomcat
+- [x] 安装MySQL并配置环境
+- [x] 安装Navicat、DBeaver
+- [x] 下载tomcat
 - [ ] 完成springboot的项目搭建
 - [ ] 完成python 爬虫 爬取GitHubAPI数据的项目搭建
 
