@@ -42,12 +42,12 @@ def start():
 
     # win 系统
     if sys.platform.startswith('win'):
-        print("windows system")
+        print("[windows system] " + sys.platform)
         pass
 
     #Linux系统
     elif sys.platform.startswith('linux'):
-        print("linux system")
+        print("[linux system] " + sys.platform)
         pass
 
     # 无法识别
@@ -57,5 +57,5 @@ def start():
     pass
 
 if __name__ == "__main__":
-    pass
+    start()
 
