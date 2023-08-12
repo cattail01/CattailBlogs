@@ -17,8 +17,8 @@
     <version>1.0-SNAPSHOT</version>
     <name>CattailBlogsBackEndProgram</name>
     <description>cattail blog back end program</description>
+
     <modules>
-        <module>TestSuccessDependency</module>
     </modules>
 
     <properties>
