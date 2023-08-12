@@ -56,6 +56,7 @@
             </exclusions>
         </dependency>
 
+
         <!-- dev tools -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -92,9 +93,14 @@
         </dependency>
 
         <!-- 数据源 -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid</artifactId>-->
+        <!--            <version>1.2.16</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
+            <artifactId>druid-spring-boot-starter</artifactId>
             <version>1.2.16</version>
         </dependency>
 

@@ -8,6 +8,15 @@
 
 ### 项目环境
 
+#### project
+
+* jdk 19
+* maven 3.9.1
+  * （java依赖请移步pom.xml）
+* 
+
+
+
 #### 数据库
 
 * mysql 8.0.33
@@ -18,10 +27,21 @@
 
 ## todo
 
+### java back end program
+
 - [x] 安装MySQL并配置环境
 - [x] 安装Navicat、DBeaver
 - [x] 下载tomcat
-- [ ] 完成springboot的项目搭建
+- [x] 完成springboot的项目搭建
+  - [ ] 整理该项目设计到的所有库的相关知识
+  - [ ] 并进行简单入门
+
+- [ ] 编写配置文件
+
+
+
+### python web spider
+
 - [ ] 完成python 爬虫 爬取GitHubAPI数据的项目搭建
 
 
