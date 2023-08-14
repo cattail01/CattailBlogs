@@ -71,6 +71,10 @@
 
 
 
+## 参考项目
+
+[MarkerHub/vueblog: 一个前后端分离的简单博客案例，适合刚入门vue，学前后端分离的童鞋！ (github.com)](https://github.com/MarkerHub/vueblog)
+
 
 
 ## 后记
