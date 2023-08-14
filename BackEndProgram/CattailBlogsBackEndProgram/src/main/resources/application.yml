@@ -1,0 +1,12 @@
+# spring 配置文件
+spring:
+  # 数据源
+  datasource:
+    # 类型
+    type:
+
+    url: jdbc:mysql://localhost:3306/atguigudb?characterEncoding=utf8
+    password:
+
+    druid:
+      password: 
