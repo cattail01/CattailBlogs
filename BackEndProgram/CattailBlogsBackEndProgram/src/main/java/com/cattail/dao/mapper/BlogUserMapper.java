@@ -1,7 +1,7 @@
 package com.cattail.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cattail.dao.entity.Countries;
+import com.cattail.dao.entity.BlogUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +13,5 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface CountriesMapper extends BaseMapper<Countries> {
+public interface BlogUserMapper extends BaseMapper<BlogUser> {
 }

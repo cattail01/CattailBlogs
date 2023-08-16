@@ -1,7 +1,7 @@
 package com.cattail.controller.helloworld;
 
-import com.cattail.dao.entity.Countries;
-import com.cattail.dao.mapper.CountriesMapper;
+import com.cattail.dao.entity.BlogUser;
+import com.cattail.dao.mapper.BlogUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,11 +20,11 @@ import java.util.List;
 public class HelloMyBatisPlusController {
 	
 	@Autowired
-	private CountriesMapper countriesMapper;
+	private BlogUserMapper blogUserMapper;
 	
 	@RequestMapping("/SelectAll")
-	public List<Countries> selectAll(){
-		return countriesMapper.selectList(null);
+	public List<BlogUser> selectAll(){
+		return blogUserMapper.selectList(null);
 	}
 	
 }
