@@ -39,14 +39,13 @@ spring:
         # 禁用 html reset all按钮
         reset-enable: false
         url-pattern: /druid/**
-        allow: 127.0.0.1
+        allow: 127.0.0.1, localhost
       # 监控web应用，开启web监控功能
       web-stat-filter:
         enabled: true
         url-pattern: /**
         exclusions: '*.js, *.gif, *.jpg, *.png, *.css, *.ico, /druid/*'
       filter:
-
         stat:
           enabled: true
           # 设置所有超过1000行的查询都是慢查询
@@ -64,3 +63,5 @@ mybatis-plus:
     # mysql 下划线命名转驼峰
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 定位mapper位置
+  mapper-locations: classpath*:/mapper/**Mapper.xml
