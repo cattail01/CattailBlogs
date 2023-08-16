@@ -93,17 +93,17 @@
         </dependency>
 
         <!-- 阿里数据库连接池 druid -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.2.16</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba</groupId>-->
+<!--            <artifactId>druid</artifactId>-->
+<!--            <version>1.2.16</version>-->
+<!--        </dependency>-->
 
         <!-- 阿里数据库连接池starter -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.16</version>
+            <version>1.1.10</version>
         </dependency>
 
         <!-- endregion database -->
