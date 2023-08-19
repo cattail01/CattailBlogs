@@ -20,6 +20,7 @@ public class MybatisPlusConfig {
 	
 	/**
 	 * 分页插件配置
+	 * todo 后期配置多个分页插件，并学习相关知识点
 	 */
 	@Bean
 	public PaginationInnerInterceptor paginationInnerInterceptor(){

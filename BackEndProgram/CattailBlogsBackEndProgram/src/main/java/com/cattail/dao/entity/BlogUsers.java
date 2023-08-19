@@ -8,7 +8,7 @@ import java.sql.Timestamp;
  * @author Cattail
  * @version 1.0
  * @create 2023/8/16 12:44
- * @description
+ * @description 用户实体类
  */
 @Data  // lombok注解
 public class BlogUsers {

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @author Cattail
  * @version 1.0
  * @create 2023/8/19 22:27
- * @description
+ * @description blogs 映射接口
  */
 @Mapper
 @Repository

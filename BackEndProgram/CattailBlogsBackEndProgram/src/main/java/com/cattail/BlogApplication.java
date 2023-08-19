@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description spring boot 启动类
  */
 
-@SpringBootApplication
+@SpringBootApplication  // 启动注解
 public class BlogApplication {
 	
 	public static void main(String[] args) {
