@@ -1,10 +1,29 @@
 package com.cattail.config;
 
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 /**
  * @author Cattail
  * @version 1.0
  * @create 2023/8/16 23:12
- * @description
+ * @description mybatis plus config class
  */
+
+@Configuration  // 配置
+@EnableTransactionManagement  // 开启事务支持
+@MapperScan("com.cattail.dao.mapper")  // 检查mapper路径
 public class MybatisPlusConfig {
+	
+	/**
+	 * 分页插件配置
+	 */
+	@Bean
+	public PaginationInnerInterceptor paginationInnerInterceptor(){
+		PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
+		return paginationInnerInterceptor;
+	}
 }
