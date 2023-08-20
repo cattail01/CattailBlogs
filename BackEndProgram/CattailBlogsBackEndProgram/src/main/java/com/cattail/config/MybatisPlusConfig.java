@@ -1,5 +1,7 @@
 package com.cattail.config;
 
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
@@ -23,8 +25,10 @@ public class MybatisPlusConfig {
 	 * todo 后期配置多个分页插件，并学习相关知识点
 	 */
 	@Bean
-	public PaginationInnerInterceptor paginationInnerInterceptor(){
-		PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
-		return paginationInnerInterceptor;
+	public MybatisPlusInterceptor paginationInnerInterceptor(){
+		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+		PaginationInnerInterceptor mysqlInnerInterceptor = new PaginationInnerInterceptor(DbType.MYSQL);
+		interceptor.addInnerInterceptor(mysqlInnerInterceptor);
+		return interceptor;
 	}
 }
