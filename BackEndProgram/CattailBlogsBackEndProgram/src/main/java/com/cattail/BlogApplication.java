@@ -15,8 +15,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BlogApplication {
 	
 	public static void main(String[] args) {
+		System.out.println("------cattail blogs back end program is trying to start-------");
 		SpringApplication.run(BlogApplication.class, args);
-		System.out.println("Spring boot jar empty project");
+		System.out.println("------cattail blogs back end program is running!--------------");
 	}
 	
 }

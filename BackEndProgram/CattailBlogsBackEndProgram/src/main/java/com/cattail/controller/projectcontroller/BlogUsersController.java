@@ -21,6 +21,6 @@ public class BlogUsersController {
 	
 	@RequestMapping("GetIndex1User")
 	public Object index(){
-		return usersService.getById(1L);
+		return usersService.selectAll();
 	}
 }

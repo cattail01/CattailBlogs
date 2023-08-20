@@ -25,7 +25,7 @@ public class MybatisPlusConfig {
 	 * todo 后期配置多个分页插件，并学习相关知识点
 	 */
 	@Bean
-	public MybatisPlusInterceptor paginationInnerInterceptor(){
+	public MybatisPlusInterceptor mybatisPlusInterceptor(){
 		MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
 		PaginationInnerInterceptor mysqlInnerInterceptor = new PaginationInnerInterceptor(DbType.MYSQL);
 		interceptor.addInnerInterceptor(mysqlInnerInterceptor);
