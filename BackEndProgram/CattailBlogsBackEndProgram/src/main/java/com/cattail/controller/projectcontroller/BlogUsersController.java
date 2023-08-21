@@ -1,6 +1,7 @@
 package com.cattail.controller.projectcontroller;
 
 import com.cattail.service.impl.BlogUsersServiceImpl;
+import com.cattail.utility.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,7 +21,7 @@ public class BlogUsersController {
 	private BlogUsersServiceImpl usersService;
 	
 	@RequestMapping("GetIndex1User")
-	public Object index(){
-		return usersService.selectAll();
+	public Result index(){
+		return Result.succ(usersService.selectAll());
 	}
 }
