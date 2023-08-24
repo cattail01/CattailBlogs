@@ -65,3 +65,9 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   # 定位mapper位置
   mapper-locations: classpath*:/mapper/**Mapper.xml
+
+# swagger配置
+springdoc:
+  swagger-ui:
+    # 配置swagger文档的访问路径
+    path: /swagger-ui.html

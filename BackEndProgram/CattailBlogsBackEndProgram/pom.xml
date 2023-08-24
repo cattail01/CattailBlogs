@@ -108,6 +108,29 @@
 
         <!-- endregion database -->
 
+        <!-- region test -->
+
+<!--        &lt;!&ndash; swagger 3 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.springfox</groupId>-->
+<!--            <artifactId>springfox-boot-starter</artifactId>-->
+<!--            <version>3.0.0</version>-->
+<!--        </dependency>-->
+
+        <!-- swagger 2 -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!-- endregion test -->
+
         <!-- hutool工具类-->
         <dependency>
             <groupId>cn.hutool</groupId>
@@ -130,7 +153,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- shiro -->
+        <!-- shiro + redis -->
         <dependency>
             <groupId>org.crazycake</groupId>
             <artifactId>shiro-redis-spring-boot-starter</artifactId>
