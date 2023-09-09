@@ -28,6 +28,26 @@
 
     <dependencies>
 
+        <!-- region javax.servlet -->
+
+        <!--加入servlet依赖（servlet的jar）-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!--jsp的依赖（jsp相关的jar加进来）-->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.2.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- endregion javax.servlet -->
+
         <!-- region spring boot -->
 
         <!-- web starter -->
@@ -55,7 +75,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
 
         <!-- dev tools -->
         <dependency>
@@ -106,6 +125,13 @@
             <version>1.1.10</version>
         </dependency>
 
+        <!-- redis tools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+
         <!-- endregion database -->
 
         <!-- region test -->
@@ -123,10 +149,18 @@
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
             <version>RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
             <version>RELEASE</version>
+        </dependency>
+
+        <!-- junit jupiter -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.2</version>
         </dependency>
 
         <!-- endregion test -->
@@ -159,6 +193,7 @@
             <artifactId>shiro-redis-spring-boot-starter</artifactId>
             <version>3.3.1</version>
         </dependency>
+
 
     </dependencies>
 
