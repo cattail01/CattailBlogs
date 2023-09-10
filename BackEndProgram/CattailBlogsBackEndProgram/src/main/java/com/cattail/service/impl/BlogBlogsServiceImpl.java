@@ -14,6 +14,5 @@ import org.springframework.stereotype.Service;
  * @description
  */
 @Service
-@Repository
 public class BlogBlogsServiceImpl extends ServiceImpl<BlogBlogsMapper, BlogBlogs> implements BlogBlogsService {
 }

@@ -15,5 +15,6 @@ public class SpringBootTestTest {
 	@Test
 	public void testSpringBootTest(){
 		System.out.println("hello world spring boot test!");
+		
 	}
 }

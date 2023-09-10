@@ -1,5 +1,6 @@
 package com.cattail.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.sql.Timestamp;
@@ -11,7 +12,8 @@ import java.sql.Timestamp;
  * @description 用户实体类
  */
 @Data  // lombok注解
-public class BlogUsers {
+@TableName("blog_users")
+public class BlogUser {
     private Long id;
     private String username;
     private String avatar;

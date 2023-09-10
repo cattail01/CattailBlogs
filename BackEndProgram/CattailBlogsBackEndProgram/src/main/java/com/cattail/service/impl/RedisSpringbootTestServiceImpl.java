@@ -1,12 +1,13 @@
 package com.cattail.service.impl;
+
 import cn.hutool.json.JSONUtil;
 import com.cattail.service.service.RedisSpringbootTestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+
 import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +17,6 @@ import java.util.function.Supplier;
  */
 @Slf4j
 @Service
-@Component
 public class RedisSpringbootTestServiceImpl implements RedisSpringbootTestService {
 	/**
 	 * Redis数据管理器

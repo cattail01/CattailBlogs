@@ -73,7 +73,7 @@ public class JwtUtilities {
 	 * @param token token
 	 * @return Claims
 	 */
-	private Claims getClaimsByToken(String token) {
+	public Claims getClaimsByToken(String token) {
 		try {
 			return Jwts.parser()
 			           .setSigningKey(secret)

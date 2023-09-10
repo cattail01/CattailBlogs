@@ -1,12 +1,13 @@
 package com.cattail.shiro;
 
+import com.cattail.dao.entity.BlogUser;
 import com.cattail.service.service.BlogUsersService;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import com.cattail.utility.JwtUtilities;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -23,6 +24,15 @@ public class JwtRealm extends AuthorizingRealm {
 	@Autowired
 	BlogUsersService blogUsersService;
 	
+	@Autowired
+	JwtUtilities jwtUtilities;
+	
+	@Override
+	public boolean supports(AuthenticationToken token) {
+//		return super.supports(token);
+		return token instanceof JwtToken;
+	}
+	
 	/**
 	 * 授权
 	 * 获取权限信息，得到信息后封装，并发出返回值给shiro
@@ -37,7 +47,7 @@ public class JwtRealm extends AuthorizingRealm {
 	
 	/**
 	 * 身份验证
-	 * 拿到token之后进行验证
+	 * 对传入的token进行验证
 	 * 然后返回基本信息
 	 *
 	 * @param authenticationToken token
@@ -47,6 +57,24 @@ public class JwtRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
 	throws AuthenticationException {
-		return null;
+		
+		// 分析传入参数信息
+		
+		// 将传入的token转换为jwttoken
+		JwtToken jwtToken = (JwtToken) authenticationToken;
+		String userId = jwtUtilities.getClaimsByToken((String) jwtToken.getPrincipal()).getSubject();
+		BlogUser user = blogUsersService.getById(Long.valueOf(userId));
+		
+		if(user == null){
+			throw new UnknownAccountException("账户不存在");
+		}
+		if(user.getStatus() == -1){
+			throw new LockedAccountException("账户已被锁定");
+		}
+		
+		AccountProfile profile = new AccountProfile();
+		BeanUtils.copyProperties(user, profile);
+		
+		return new SimpleAuthenticationInfo(profile, jwtToken.getCredentials(), getName());
 	}
 }

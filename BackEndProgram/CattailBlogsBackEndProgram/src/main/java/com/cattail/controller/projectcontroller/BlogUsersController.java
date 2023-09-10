@@ -1,6 +1,6 @@
 package com.cattail.controller.projectcontroller;
 
-import com.cattail.service.impl.BlogUsersServiceImpl;
+import com.cattail.service.service.BlogUsersService;
 import com.cattail.utility.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BlogUsersController {
 	
 	@Autowired
-	private BlogUsersServiceImpl usersService;
+	private BlogUsersService usersService;
 	
 	@RequestMapping("/GetAllUser")
 	public Result index(){

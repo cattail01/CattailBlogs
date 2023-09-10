@@ -1,7 +1,7 @@
 package com.cattail.config;
 
-import com.cattail.shiro.JwtRealm;
 import com.cattail.shiro.JwtFilter;
+import com.cattail.shiro.JwtRealm;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.mgt.SecurityManager;
@@ -14,11 +14,12 @@ import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
+import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
 import java.util.HashMap;
@@ -32,6 +33,7 @@ import java.util.Map;
  * 整合了redis
  * 整合了jwt，并关闭了自带的session校验
  */
+@Configuration
 public class ShiroConfig {
 	
 	// 引入RedisSessionDAO和RedisCacheManager，为了解决shiro的权限数据和会话信息能保存到redis中，实现会话共享。
@@ -40,18 +42,78 @@ public class ShiroConfig {
 	 * redis 中 session 类型数据操作器
 	 * 用于将管理 session 的功能移交给 redis
 	 */
-	@Autowired
-	private RedisSessionDAO redisSessionDAO;
+//	@Autowired
+//	private RedisSessionDAO redisSessionDAO;
 	
 	/**
 	 * redis 缓存管理器
 	 * 用于将 cache 管理的功能移交给 redis
 	 */
-	@Autowired
-	private RedisCacheManager redisCacheManager;
+//	@Autowired
+//	private RedisCacheManager redisCacheManager;
 	
 	@Autowired
 	private JwtFilter jwtFilter;
+	
+	// region beans config for shiro-redis starter
+	
+	// 因为失败，所以手动编写config配置（不知道是不是因为冲突）
+//	/*
+//	 * <!-- shiro-redis configuration [start] -->
+//
+//<!-- Redis Manager [start] -->
+//<bean id="redisManager" class="org.crazycake.shiro.RedisManager">
+//    <property name="host" value="127.0.0.1:6379"/>
+//</bean>
+//<!-- Redis Manager [end] -->
+//
+//<!-- Redis session DAO [start] -->
+//<bean id="redisSessionDAO" class="org.crazycake.shiro.RedisSessionDAO">
+//    <property name="redisManager" ref="redisManager" />
+//</bean>
+//<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+//    <property name="sessionDAO" ref="redisSessionDAO" />
+//</bean>
+//<!-- Redis session DAO [end] -->
+//
+//<!-- Redis cache manager [start] -->
+//<bean id="cacheManager" class="org.crazycake.shiro.RedisCacheManager">
+//    <property name="redisManager" ref="redisManager" />
+//</bean>
+//<!-- Redis cache manager [end] -->
+//
+//<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+//    <property name="sessionManager" ref="sessionManager" />
+//    <property name="cacheManager" ref="cacheManager" />
+//
+//    <!-- other configurations -->
+//    <property name="realm" ref="exampleRealm"/>
+//    <property name="rememberMeManager.cipherKey" value="kPH+bIxk5D2deZiIxcaaaA==" />
+//</bean>
+//	*/
+	
+	@Bean
+	public RedisManager redisManager() {
+		RedisManager redisManager = new RedisManager();
+		redisManager.setHost("127.0.0.1:6379");
+		return redisManager;
+	}
+	
+	@Bean
+	public RedisSessionDAO redisSessionDAO(RedisManager redisManager) {
+		RedisSessionDAO redisSessionDAO1 = new RedisSessionDAO();
+		redisSessionDAO1.setRedisManager(redisManager);
+		return redisSessionDAO1;
+	}
+	
+	@Bean
+	public RedisCacheManager cacheManager(RedisManager redisManager){
+		RedisCacheManager redisCacheManager1 = new RedisCacheManager();
+		redisCacheManager1.setRedisManager(redisManager);
+		return redisCacheManager1;
+	}
+	
+	// endregion
 	
 	
 	/**
@@ -84,6 +146,7 @@ public class ShiroConfig {
 	
 	// region shiro redis starter config
 	
+	
 	// 重写了SessionManager和DefaultWebSecurityManager，
 	// 同时在DefaultWebSecurityManager中为了关闭shiro自带的session方式，
 	// 我们需要设置为false，这样用户就不再能通过session方式登录shiro。后面将采用jwt凭证登录。
@@ -95,7 +158,7 @@ public class ShiroConfig {
 	 * @return SessionManager
 	 */
 	@Bean  // 表示spring boot 中已经存在一个bean，该方法可以对该bean进行替换
-	public SessionManager sessionManager() {
+	public SessionManager sessionManager(RedisSessionDAO redisSessionDAO) {
 		DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
 		
 		// inject redisSessionDAO
@@ -106,18 +169,22 @@ public class ShiroConfig {
 		
 		return sessionManager;
 	}
+
+//	@Bean
+//	public RedisCacheManager redisCacheManager(){
+//		return new RedisCacheManager();
+//	}
 	
 	/**
 	 * 安全管理器（核心配置）
 	 *
-	 * @param realm         身份验证和授权规则封装类
+	 * @param realm          身份验证和授权规则封装类
 	 * @param sessionManager 绘画管理器（spring bean）
 	 * @return SessionsSecurityManager
 	 */
 	@Bean
 //	public SessionsSecurityManager securityManager(List<Realm> realm, SessionManager sessionManager) {
-	public SessionsSecurityManager securityManager(
-			@Qualifier("AccountRealm")
+	public SessionsSecurityManager securityManager(RedisCacheManager redisCacheManager,
 			JwtRealm realm, SessionManager sessionManager) {
 		
 		// 使用自定义的身份验证和身份授权方法创建DefaultWebSecurityManager对象
@@ -145,19 +212,18 @@ public class ShiroConfig {
 	}
 	
 	// endregion shiro redis starter config
-
+	
 	// 在ShiroFilterChainDefinition中，我们不再通过编码形式拦截Controller访问路径，
 	// 而是所有的路由都需要经过JwtFilter这个过滤器，然后判断请求头中是否含有jwt的信息，
 	// 有就登录，没有就跳过。
 	// 跳过之后，有Controller中的shiro注解进行再次拦截，比如@RequiresAuthentication，这样控制权限访问。
-
+	
 	/**
-	 *
 	 * @param securityManager
 	 * @param shiroFilterChainDefinition
 	 * @return
 	 */
-	@Bean("shiroFilterFactoryBean")
+	@Bean
 	public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager,
 	                                                     ShiroFilterChainDefinition shiroFilterChainDefinition) {
 		ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
@@ -183,7 +249,7 @@ public class ShiroConfig {
 	}
 	
 	@Bean
-	public static DefaultAdvisorAutoProxyCreator getDefaultAdvisorAutoProxyCreator(){
+	public static DefaultAdvisorAutoProxyCreator getDefaultAdvisorAutoProxyCreator() {
 		DefaultAdvisorAutoProxyCreator creator = new DefaultAdvisorAutoProxyCreator();
 		return creator;
 	}

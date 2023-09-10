@@ -1,11 +1,10 @@
 package com.cattail.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cattail.dao.entity.BlogUsers;
+import com.cattail.dao.entity.BlogUser;
 import com.cattail.dao.mapper.BlogUsersMapper;
 import com.cattail.service.service.BlogUsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +16,12 @@ import java.util.List;
  * @description blog user service 层实现
  */
 @Service
-@Repository
-public class BlogUsersServiceImpl extends ServiceImpl<BlogUsersMapper, BlogUsers> implements BlogUsersService {
+public class BlogUsersServiceImpl extends ServiceImpl<BlogUsersMapper, BlogUser> implements BlogUsersService {
 	
 	@Autowired
 	private BlogUsersMapper usersMapper;
 	
-	public List<BlogUsers> selectAll(){
+	public List<BlogUser> selectAll(){
 		return usersMapper.selectList(null);
 	}
 }

@@ -1,7 +1,7 @@
 package com.cattail.service.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cattail.dao.entity.BlogUsers;
+import com.cattail.dao.entity.BlogUser;
 
 import java.util.List;
 
@@ -11,11 +11,11 @@ import java.util.List;
  * @create 2023/8/19 23:02
  * @description users 业务层设计
  */
-public interface BlogUsersService extends IService<BlogUsers> {
+public interface BlogUsersService extends IService<BlogUser> {
 	
 	/**
 	 * 查询所有的user
 	 * @return user list
 	 */
-	List<BlogUsers> selectAll();
+	List<BlogUser> selectAll();
 }
