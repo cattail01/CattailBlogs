@@ -11,7 +11,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://localhost:3306/cattail_blogs_db?useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://localhost:3306/cattail_blogs_db?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+#    jdbc-url: jdbc:mysql://localhost:3306/kiki_test?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource
     # endregion 基础数据源配置
     # druid 连接池配置
@@ -69,7 +70,6 @@ spring:
           min-idle: 0
 
 
-
 # mybatis plus
 mybatis-plus:
   configuration:
@@ -84,3 +84,13 @@ springdoc:
     # 配置swagger文档的访问路径
     path: /swagger-ui.html
     enabled: true
+shiro:
+  enabled: true
+
+markerhub:
+  jwt:
+    # 加密密钥
+    secret: f4e2e52034348f86b67cde581c0f9eb5
+    # 过期时间（秒）
+    expire: 604800  # 7天
+    header: token

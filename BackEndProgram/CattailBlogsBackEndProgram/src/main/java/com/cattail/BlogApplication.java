@@ -15,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BlogApplication {
 	
 	public static void main(String[] args) {
+		// 启动 spring boot 项目
 		System.out.println("------cattail blogs back end program is trying to start-------");
 		SpringApplication.run(BlogApplication.class, args);
 		System.out.println("------cattail blogs back end program is running!--------------");

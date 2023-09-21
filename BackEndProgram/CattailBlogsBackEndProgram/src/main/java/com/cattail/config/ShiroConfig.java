@@ -107,7 +107,7 @@ public class ShiroConfig {
 	}
 	
 	@Bean
-	public RedisCacheManager cacheManager(RedisManager redisManager){
+	public RedisCacheManager cacheManager(RedisManager redisManager) {
 		RedisCacheManager redisCacheManager1 = new RedisCacheManager();
 		redisCacheManager1.setRedisManager(redisManager);
 		return redisCacheManager1;
@@ -124,6 +124,7 @@ public class ShiroConfig {
 	 */
 	private Map<String, String> createFilterMap() {
 		Map<String, String> filterMap = new HashMap<>();
+		// todo 针对不同的路径添加新的检验路径
 		filterMap.put("/**", "jwt");
 		return filterMap;
 	}
@@ -185,7 +186,7 @@ public class ShiroConfig {
 	@Bean
 //	public SessionsSecurityManager securityManager(List<Realm> realm, SessionManager sessionManager) {
 	public SessionsSecurityManager securityManager(RedisCacheManager redisCacheManager,
-			JwtRealm realm, SessionManager sessionManager) {
+	                                               JwtRealm realm, SessionManager sessionManager) {
 		
 		// 使用自定义的身份验证和身份授权方法创建DefaultWebSecurityManager对象
 		DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager(realm);

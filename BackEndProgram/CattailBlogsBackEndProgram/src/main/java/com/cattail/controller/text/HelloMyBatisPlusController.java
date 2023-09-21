@@ -1,8 +1,9 @@
-package com.cattail.controller.helloworld;
+package com.cattail.controller.text;
 
 import com.cattail.dao.entity.BlogUser;
 import com.cattail.dao.mapper.BlogUsersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,7 +23,7 @@ public class HelloMyBatisPlusController {
 	@Autowired
 	private BlogUsersMapper blogUsersMapper;
 	
-	@RequestMapping("/SelectAll")
+	@GetMapping("/SelectAll")
 	public List<BlogUser> selectAll(){
 		return blogUsersMapper.selectList(null);
 	}

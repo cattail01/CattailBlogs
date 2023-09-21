@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @create 2023/8/19 23:00
  * @description blogs controller 层
  */
-@RestController
-@RequestMapping("/BlogBlogs")
+@RestController  // controller层
+@RequestMapping("/BlogBlogs")  // 映射路径
 public class BlogBlogsController {
 }

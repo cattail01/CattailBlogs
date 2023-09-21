@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
  * @author Cattail
  * @version 1.0
  * @create 2023/8/24 12:40
- * @description swagger config class
+ * @description swagger 配置类
  */
 @Configuration  // 配置文件
 public class SwaggerConfig {
 	
 	private final String title = "迎春博客系统";
 	
-	private final String description = "winter jasmine（welcome spring in chinese）";
+	private final String description = "winter jasmine （welcome spring in chinese） system swagger";
 	
 	private final String version = "1.0.0";
 	

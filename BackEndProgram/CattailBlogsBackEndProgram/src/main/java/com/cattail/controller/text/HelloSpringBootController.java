@@ -1,5 +1,6 @@
-package com.cattail.controller.helloworld;
+package com.cattail.controller.text;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/hello")
 public class HelloSpringBootController {
     
-    @RequestMapping("/say")
+    @GetMapping("/say")
     public String say(){
         return "hello world";
     }
