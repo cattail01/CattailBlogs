@@ -19,5 +19,4 @@ public class HelloSpringBootController {
         return "hello world";
     }
     
-    
 }
