@@ -1,4 +1,4 @@
-package com.cattail.exception;
+package com.cattail.common.exception;
 
 import com.cattail.utility.Result;
 import com.cattail.utility.ResultCodeType;

@@ -3,8 +3,8 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/BlogApplication.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/controller/text/HelloMyBatisPlusController.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/controller/text/HelloSpringBootController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/controller/test/HelloMyBatisPlusController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/controller/test/HelloSpringBootController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/service/impl/RedisSpringbootTestServiceImpl.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/cattail/service/service/RedisSpringbootTestService.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

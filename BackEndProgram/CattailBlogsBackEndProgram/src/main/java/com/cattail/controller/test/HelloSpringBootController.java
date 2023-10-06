@@ -1,4 +1,4 @@
-package com.cattail.controller.text;
+package com.cattail.controller.test;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -50,7 +50,7 @@ public class JwtUtilities {
 	 *
 	 * @return token string
 	 */
-	private String generateToken(long userId) {
+	public String generateToken(long userId) {
 		Date nowDate = new Date();
 		Date expirationDate = createExpirationTime(nowDate);
 		

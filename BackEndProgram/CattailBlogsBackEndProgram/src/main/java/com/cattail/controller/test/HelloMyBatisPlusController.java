@@ -1,4 +1,4 @@
-package com.cattail.controller.text;
+package com.cattail.controller.test;
 
 import com.cattail.dao.entity.BlogUser;
 import com.cattail.dao.mapper.BlogUsersMapper;
