@@ -8,7 +8,13 @@ package com.cattail.common.globaldefine;
  */
 public class GlobalDefaultAccountPassword {
 	
-	public static final String account = "cattail01";
+	/**
+	 * 默认用户名
+	 */
+	public static final String account = "username";
 	
-	public static final String password = "123456";
+	/**
+	 * 默认密码
+	 */
+	public static final String password = "password";
 }
