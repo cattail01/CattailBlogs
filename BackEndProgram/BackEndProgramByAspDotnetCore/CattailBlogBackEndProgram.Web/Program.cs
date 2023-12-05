@@ -1,3 +1,7 @@
+
+
+#region asp dotnet core web api start up
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,3 +27,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+#endregion asp dotnet core web api start up
