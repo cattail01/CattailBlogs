@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CattailBlogBackEndProgram.Utility;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CattailBlogBackEndProgram.Web;
 
@@ -16,6 +17,6 @@ public class GetAllBlogArticlesController : ControllerBase
     [HttpGet(Name = "GetAllBlogArticles1")]
     public object GetAllBlogArticles()
     {
-        return "success";
+        return ResultHelper.Success(data: "hello unity result packaging");
     }
 }
