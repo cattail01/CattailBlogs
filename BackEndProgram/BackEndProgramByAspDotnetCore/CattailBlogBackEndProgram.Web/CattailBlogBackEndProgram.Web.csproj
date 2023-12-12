@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Service\CattailBlogBackEndProgram.Service.csproj" />
       <ProjectReference Include="..\CattailBlogBackEndProgram.Utility\CattailBlogBackEndProgram.Utility.csproj" />
     </ItemGroup>
 

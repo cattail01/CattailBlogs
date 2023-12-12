@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CattailBlogBackEndProgram.Web;
 
 [ApiController]
-[Route("/test/[controller]")]
+[Route("/test/[controller]/[action]")]
 public class GetAllBlogArticlesController : ControllerBase
 {
     private ILogger<GetAllBlogArticlesController> _logger;
@@ -14,9 +14,10 @@ public class GetAllBlogArticlesController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetAllBlogArticles1")]
-    public object GetAllBlogArticles()
+    [HttpGet(Name = "GetAllArticles")]
+    public object GetAllArticles()
     {
-        return ResultHelper.Success(data: "hello unity result packaging");
+        // return ResultHelper.Success(data: "hello unity result packaging");
+        return BadRequest("hello unity result packaging");
     }
 }
