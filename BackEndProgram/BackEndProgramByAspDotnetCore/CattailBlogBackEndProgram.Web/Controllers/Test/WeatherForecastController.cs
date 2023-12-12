@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace CattailBlogBackEndProgram.Web;
+namespace CattailBlogBackEndProgram.Web.Test;
 
+#if DEBUG
 [ApiController]
 [Route("/test/[controller]")]
+#endif
+
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]

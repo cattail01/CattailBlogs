@@ -1,10 +1,13 @@
 ﻿using CattailBlogBackEndProgram.Utility;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CattailBlogBackEndProgram.Web;
+namespace CattailBlogBackEndProgram.Web.Test;
 
+#if DEBUG
 [ApiController]
 [Route("/test/[controller]/[action]")]
+#endif
+
 public class GetAllBlogArticlesController : ControllerBase
 {
     private ILogger<GetAllBlogArticlesController> _logger;
@@ -14,10 +17,10 @@ public class GetAllBlogArticlesController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetAllArticles")]
+    [HttpGet]
     public object GetAllArticles()
     {
-        // return ResultHelper.Success(data: "hello unity result packaging");
-        return BadRequest("hello unity result packaging");
+        object result = new object();
+        return Ok(ResultHelper.Success(result));
     }
 }
