@@ -17,4 +17,8 @@
       <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Data\CattailBlogBackEndProgram.Data.csproj" />
+    </ItemGroup>
+
 </Project>
