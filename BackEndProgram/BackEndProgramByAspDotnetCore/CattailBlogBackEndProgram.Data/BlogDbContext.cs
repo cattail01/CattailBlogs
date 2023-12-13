@@ -4,12 +4,13 @@ namespace CattailBlogBackEndProgram.Data;
 
 public class BlogDbContext : DbContext
 {
-    // 连接几个表就写几个
+    // [notice] 连接几个表就写几个
     public DbSet<BlogArticles>? BlogArticles { get; set; }
+    public DbSet<User>? Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connStr = "Server=localhost;Port=3306;Database=cattailblogbackenddb;User UserId=root;Password=123456";
+        string connStr = "Server=localhost;Port=3306;Database=cattailblogbackenddb;UserId=root;Password=123456";
         optionsBuilder.UseMySql(connStr, ServerVersion.AutoDetect(connStr));
     }
 
