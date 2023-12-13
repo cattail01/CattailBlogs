@@ -21,7 +21,7 @@ public class GetAllBlogArticlesController : ControllerBase
     public object GetAllArticles()
     {
         object result = new object();
-        // return Ok(ResultHelper.Success(result));
-        throw new BusinessException(ResultHelper.Error(ResultCode.BadRequest, "测试全局异常处理"));
+        return Ok(ResultHelper.Success(result));
+        // throw new BusinessException(ResultHelper.Error(ResultCode.BadRequest, "测试全局异常处理"));
     }
 }
