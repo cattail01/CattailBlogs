@@ -1,4 +1,4 @@
-﻿namespace CattailBlogBackEndProgram.Utility.Exceptions;
+﻿namespace CattailBlogBackEndProgram.Utility;
 
 /// <summary>
 /// 业务异常类
