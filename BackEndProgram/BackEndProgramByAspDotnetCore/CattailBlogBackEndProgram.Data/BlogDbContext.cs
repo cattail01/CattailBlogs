@@ -9,7 +9,7 @@ public class BlogDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connStr = "Server=localhost;Port=3306;Database=cattailblogbackenddb;User Id=root;Password=123456;Trusted_Connection=True;MultipleActiveResultSets=true";
+        string connStr = "Server=localhost;Port=3306;Database=cattailblogbackenddb;User UserId=root;Password=123456";
         optionsBuilder.UseMySql(connStr, ServerVersion.AutoDetect(connStr));
     }
 
