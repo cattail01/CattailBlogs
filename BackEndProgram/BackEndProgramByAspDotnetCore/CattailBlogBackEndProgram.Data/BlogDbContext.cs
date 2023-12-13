@@ -7,6 +7,7 @@ public class BlogDbContext : DbContext
     // [notice] 连接几个表就写几个
     public DbSet<BlogArticles>? BlogArticles { get; set; }
     public DbSet<User>? Users { get; set; }
+    public DbSet<ArticleAuthor>? ArticleAuthors { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

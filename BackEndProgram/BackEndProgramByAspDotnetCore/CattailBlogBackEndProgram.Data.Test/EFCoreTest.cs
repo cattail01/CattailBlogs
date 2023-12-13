@@ -5,8 +5,13 @@ namespace CattailBlogBackEndProgram.Data.Test;
 [TestClass]
 public class EFCoreTest
 {
+    public void TestAddData()
+    {
+        
+    }
+    
     [TestMethod]
-    public void TestEFcore()
+    public void TestEFCore()
     {
         
     }
