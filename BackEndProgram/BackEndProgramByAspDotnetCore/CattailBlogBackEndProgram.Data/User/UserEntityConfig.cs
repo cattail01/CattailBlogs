@@ -7,6 +7,6 @@ public class UserEntityConfig : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.ToTable("cattailblogs_users");
+        // builder.ToTable("cattailblogs_users");
     }
 }

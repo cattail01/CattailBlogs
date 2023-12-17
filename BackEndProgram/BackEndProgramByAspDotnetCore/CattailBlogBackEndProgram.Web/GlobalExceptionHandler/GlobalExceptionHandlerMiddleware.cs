@@ -28,7 +28,8 @@ public class GlobalExceptionHandlerMiddleware
 
         // other Exceptions
         context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-        return context.Response.WriteAsJsonAsync(ResultHelper.Error("其他类型异常"));
+        return context.Response.WriteAsJsonAsync(
+            ResultHelper.Error(string.IsNullOrEmpty(exception.Message) ? "其他类型异常" : exception.Message));
     }
 
     public async Task Invoke(HttpContext context)

@@ -1,6 +1,6 @@
 ﻿namespace CattailBlogBackEndProgram.Utility;
 
-public class SnowFlack : SingletonBase<SnowFlack>
+public interface IBlogResult
 {
     
 }

@@ -7,7 +7,7 @@ namespace CattailBlogBackEndProgram.Data;
 [PrimaryKey(nameof(Id))]
 public class ArticleAuthor
 {
-    public string? Id { get; set; }
+    public Guid? Id { get; set; }
 
     public string? UserId { get; set; }
 

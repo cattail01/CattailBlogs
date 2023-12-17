@@ -6,12 +6,12 @@ namespace CattailBlogBackEndProgram.Data;
 /// <summary>
 /// BlogArticles实体类配置
 /// </summary>
-public class BlogArticlesEntityConfig : IEntityTypeConfiguration<BlogArticles>
+public class BlogArticlesEntityConfig : IEntityTypeConfiguration<BlogArticle>
 {
-    public void Configure(EntityTypeBuilder<BlogArticles> builder)
+    public void Configure(EntityTypeBuilder<BlogArticle> builder)
     {
         // [process] 表名映射
-        builder.ToTable("cattailblogs_blogarticles");
+        // builder.ToTable("cattailblogs_blogarticles");
 
         #region 修改表结构
 

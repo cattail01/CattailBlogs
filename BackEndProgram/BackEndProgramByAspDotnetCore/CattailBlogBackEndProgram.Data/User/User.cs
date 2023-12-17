@@ -10,21 +10,28 @@ namespace CattailBlogBackEndProgram.Data;
 [Table("cattailblogs_users")]
 public class User
 {
-    [Column(TypeName = "varchar(64)")] public string? UserId { get; set; }
+    [Column(TypeName = "varchar(64)")] 
+    public Guid? UserId { get; set; }
 
-    [Column(TypeName = "datetime")] public DateTime GmtCreateTime { get; set; }
+    [Column(TypeName = "datetime")] 
+    public DateTime GmtCreateTime { get; set; }
 
-    [Column(TypeName = "datetime")] public DateTime GmtUpdateTime { get; set; }
+    [Column(TypeName = "datetime")] 
+    public DateTime GmtUpdateTime { get; set; }
 
-    [Column(TypeName = "varchar(255)")] public string UserName { get; set; }
+    [Column(TypeName = "varchar(255)")] 
+    public string UserName { get; set; }
     
-    [Column(TypeName = "varchar(255)")] public string Password { get; set; }
+    [Column(TypeName = "varchar(255)")] 
+    public string Password { get; set; }
 
-    [Column(TypeName = "varchar(255)")] public string? Avatar { get; set; }
+    [Column(TypeName = "varchar(255)")] 
+    public string? Avatar { get; set; }
 
     public int Gender { get; set; }
 
-    [Column(TypeName = "varchar(64)")] public string? Email { get; set; }
+    [Column(TypeName = "varchar(64)")] 
+    public string? Email { get; set; }
 
     public int Status { get; set; }
 }

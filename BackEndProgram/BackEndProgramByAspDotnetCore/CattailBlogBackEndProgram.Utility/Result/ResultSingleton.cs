@@ -3,7 +3,7 @@
 /// <summary>
 /// 统一结果封装
 /// </summary>
-public class ResultSingleton : SingletonBase<ResultSingleton>
+public class ResultSingleton : SingletonBase<ResultSingleton>, IBlogResult
 {
     /// <summary>
     /// 返回状态码

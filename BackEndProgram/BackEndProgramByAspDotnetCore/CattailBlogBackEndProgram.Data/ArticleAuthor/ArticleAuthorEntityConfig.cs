@@ -7,6 +7,6 @@ public class ArticleAuthorEntityConfig : IEntityTypeConfiguration<ArticleAuthor>
 {
     public void Configure(EntityTypeBuilder<ArticleAuthor> builder)
     {
-        builder.ToTable("cattailblogs_articleauthor");
+        // builder.ToTable("cattailblogs_articleauthor");
     }
 }
