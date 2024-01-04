@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Data.SqlSugar", "CattailBlogBackEndProgram.Data.SqlSugar\CattailBlogBackEndProgram.Data.SqlSugar.csproj", "{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Log.Log4net", "CattailBlogBackEndProgram.Log.Log4net\CattailBlogBackEndProgram.Log.Log4net.csproj", "{D8DE9A2B-95CC-4B8A-A760-C9F138CE12E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DE9A2B-95CC-4B8A-A760-C9F138CE12E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DE9A2B-95CC-4B8A-A760-C9F138CE12E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DE9A2B-95CC-4B8A-A760-C9F138CE12E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DE9A2B-95CC-4B8A-A760-C9F138CE12E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
