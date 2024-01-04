@@ -1,12 +1,10 @@
+<!-- [page function] application page -->
+
 <script src="/src/app/App.js"></script>
-<style src="/src/app/App.css"></style>
 
 <template>
-
-  <div class="red">
-    {{count}}
-    <button @click="AddOneWhenClick">点击加一</button>
-  </div>
-
+  <!-- 公用资源 -->
+  <h1>template</h1>
+  <!-- [process] show router page -->
+  <router-view></router-view>
 </template>
-

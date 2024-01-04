@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CattailBlogBackEndProgram.Data\CattailBlogBackEndProgram.Data.csproj" />
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Data.EFCore\CattailBlogBackEndProgram.Data.EFCore.csproj" />
     </ItemGroup>
 
 </Project>

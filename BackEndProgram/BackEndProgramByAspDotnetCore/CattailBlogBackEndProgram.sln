@@ -4,13 +4,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Utility", "CattailBlogBackEndProgram.Utility\CattailBlogBackEndProgram.Utility.csproj", "{0E4D09BC-690E-4933-9187-A588BCAC0EE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Data", "CattailBlogBackEndProgram.Data\CattailBlogBackEndProgram.Data.csproj", "{7F6F1D2E-63A6-4E6F-8379-46499262FFB7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Data.EFCore", "CattailBlogBackEndProgram.Data.EFCore\CattailBlogBackEndProgram.Data.EFCore.csproj", "{7F6F1D2E-63A6-4E6F-8379-46499262FFB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Service", "CattailBlogBackEndProgram.Service\CattailBlogBackEndProgram.Service.csproj", "{F1ECA513-1215-4F3A-92A6-BAB300085766}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Data.Test", "CattailBlogBackEndProgram.Data.Test\CattailBlogBackEndProgram.Data.Test.csproj", "{90430E95-3242-45DC-9409-9F9B60B84AA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Utility.Test", "CattailBlogBackEndProgram.Utility.Test\CattailBlogBackEndProgram.Utility.Test.csproj", "{7C6C5C4C-3C03-4BAA-934F-F4ABD399A419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CattailBlogBackEndProgram.Data.SqlSugar", "CattailBlogBackEndProgram.Data.SqlSugar\CattailBlogBackEndProgram.Data.SqlSugar.csproj", "{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +44,9 @@ Global
 		{7C6C5C4C-3C03-4BAA-934F-F4ABD399A419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C6C5C4C-3C03-4BAA-934F-F4ABD399A419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C6C5C4C-3C03-4BAA-934F-F4ABD399A419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB1CD95-1903-4410-A03E-DD7E1AAE20E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -18,7 +18,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CattailBlogBackEndProgram.Data\CattailBlogBackEndProgram.Data.csproj" />
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Data.EFCore\CattailBlogBackEndProgram.Data.EFCore.csproj" />
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Data.SqlSugar\CattailBlogBackEndProgram.Data.SqlSugar.csproj" />
     </ItemGroup>
 
 </Project>
