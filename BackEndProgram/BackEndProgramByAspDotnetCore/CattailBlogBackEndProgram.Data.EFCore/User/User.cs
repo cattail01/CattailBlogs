@@ -1,19 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace CattailBlogBackEndProgram.Data.EFCore;
 
 /// <summary>
-/// Users实体类
+/// User实体类
 /// </summary>
-[PrimaryKey(nameof(UserId))]
-[Table("cattailblogs_users")]
 public class User
 {
-    [Column(TypeName = "varchar(64)")] 
     public Guid? UserId { get; set; }
-
-    [Column(TypeName = "datetime")] 
     public DateTime GmtCreateTime { get; set; }
 
     [Column(TypeName = "datetime")] 

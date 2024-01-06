@@ -8,6 +8,7 @@ builder.Logging.AddLog4Net(
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(typeof(AutoMapperConfigs));
 builder.Services.AddTransient<IUserService, UserServiceImpl>();
 
 var app = builder.Build();

@@ -13,8 +13,14 @@ public interface IUserService
     /// <param name="loginDto"></param>
     /// <returns></returns>
     Task<User> CheckLogin(UserLoginDto loginDto);
+
+    /// <summary>
+    /// 添加用户
+    /// </summary>
+    /// <param name="registerDto"></param>
+    /// <returns></returns>
+    Task<User> AddUser(UserRegisterDto registerDto);
     
     
-    // User AddUser(UserRegisterDto registerDto);
     // User GetUser(Guid userId);
 }

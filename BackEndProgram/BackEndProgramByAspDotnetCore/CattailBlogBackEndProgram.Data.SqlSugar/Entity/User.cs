@@ -5,8 +5,8 @@ namespace CattailBlogBackEndProgram.Data.SqlSugar;
 [SugarTable("cattailblogs_users")]
 public class User
 {
-    [SugarColumn(IsPrimaryKey = true, IsIdentity = true)]
-    public Guid UserId { get; set; }
+    [SugarColumn(IsPrimaryKey = true, IsIdentity = false)]
+    public string UserId { get; set; }
     public DateTime GmTCreateTime { get; set; }
     public DateTime GmtUpdateTime { get; set; }
     public string UserName { get; set; }
