@@ -12,6 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Data.SqlSugar\CattailBlogBackEndProgram.Data.SqlSugar.csproj" />
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Log.Log4net\CattailBlogBackEndProgram.Log.Log4net.csproj" />
       <ProjectReference Include="..\CattailBlogBackEndProgram.Service\CattailBlogBackEndProgram.Service.csproj" />
       <ProjectReference Include="..\CattailBlogBackEndProgram.Utility\CattailBlogBackEndProgram.Utility.csproj" />
     </ItemGroup>

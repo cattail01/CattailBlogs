@@ -1,10 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace CattailBlogBackEndProgram.Data;
+namespace CattailBlogBackEndProgram.Data.EFCore;
 
 public class BlogDbContext : DbContext
 {
-    // [notice] 连接几个表就写几个
     public DbSet<BlogArticle>? BlogArticles { get; set; }
     public DbSet<User>? Users { get; set; }
     public DbSet<ArticleAuthor>? ArticleAuthors { get; set; }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CattailBlogBackEndProgram.Data.EFCore;
 
 namespace CattailBlogBackEndProgram.Data.Test;
 
@@ -96,8 +97,23 @@ public class EFCoreTest
     }
     
     [TestMethod]
-    public void TestEFCore()
+    public async Task TestEFCore()
     {
-        
+        using (var context = new BlogDbContext())
+        {
+            var user = new User()
+            {
+                UserId = Guid.NewGuid(),
+                GmtCreateTime = DateTime.Now,
+                GmtUpdateTime = DateTime.Now,
+                UserName = "test",
+                Password = "test",
+                Email = "test",
+                Gender = 0,
+                Status = 0
+            };
+            await context.Users.AddAsync(user);
+            await context.SaveChangesAsync();
+        }
     }
 }

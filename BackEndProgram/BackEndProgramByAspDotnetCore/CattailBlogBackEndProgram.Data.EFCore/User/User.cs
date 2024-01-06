@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace CattailBlogBackEndProgram.Data;
+namespace CattailBlogBackEndProgram.Data.EFCore;
 
 /// <summary>
 /// Users实体类
@@ -31,7 +31,7 @@ public class User
     public int Gender { get; set; }
 
     [Column(TypeName = "varchar(64)")] 
-    public string? Email { get; set; }
+    public string Email { get; set; }
 
     public int Status { get; set; }
 }

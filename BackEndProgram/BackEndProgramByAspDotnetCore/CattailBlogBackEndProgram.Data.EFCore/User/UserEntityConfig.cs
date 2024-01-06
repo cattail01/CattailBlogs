@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace CattailBlogBackEndProgram.Data;
+namespace CattailBlogBackEndProgram.Data.EFCore;
 
 public class UserEntityConfig : IEntityTypeConfiguration<User>
 {
