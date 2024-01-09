@@ -17,7 +17,7 @@ public class UserServiceImpl: IUserService
     /// </summary>
     /// <param name="loginDto"></param>
     /// <returns></returns>
-    public async Task<User> CheckLogin(UserLoginDto loginDto)
+    public async Task<User> CheckLoginAsync(UserLoginDto loginDto)
     {
         return await DbContext.Db.Queryable<User>()
             .FirstAsync(m => m.UserName == loginDto.Email && m.Password == loginDto.Password);
@@ -41,7 +41,7 @@ public class UserServiceImpl: IUserService
     /// <param name="userRegisterDto"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public async Task<User> AddUser(UserRegisterDto userRegisterDto)
+    public async Task<User> AddUserAsync(UserRegisterDto userRegisterDto)
     {
         // 验证是否存在
         if (await DbContext.Db.Queryable<User>().AnyAsync(m => m.Email == userRegisterDto.Email))
