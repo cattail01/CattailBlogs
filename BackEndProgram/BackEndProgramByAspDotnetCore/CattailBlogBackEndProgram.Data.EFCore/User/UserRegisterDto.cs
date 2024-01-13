@@ -1,9 +1,22 @@
 ﻿namespace CattailBlogBackEndProgram.Data.EFCore;
 
+/// <summary>
+/// 用户注册数据
+/// </summary>
 public class UserRegisterDto
 {
-    public string UserName { get; set; }
-    public string Password { get; set; }
-    public int Gender { get; set; }
-    public string Email { get; set; }
+    /// <summary>
+    /// 用户名
+    /// </summary>
+    public string UserName => String.Empty;
+
+    /// <summary>
+    /// 密码
+    /// </summary>
+    public string Password => String.Empty;
+
+    /// <summary>
+    /// 邮件地址
+    /// </summary>
+    public string Email => String.Empty;
 }

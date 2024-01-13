@@ -2,6 +2,9 @@
 
 namespace CattailBlogBackEndProgram.Data.EFCore;
 
+/// <summary>
+/// 数据库上下文类
+/// </summary>
 public class BlogDbContext : DbContext
 {
     public DbSet<BlogArticle>? BlogArticles { get; set; }
@@ -10,7 +13,8 @@ public class BlogDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        string connStr = "Server=localhost;Port=3306;Database=cattailblogbackenddb;UserId=root;Password=123456";
+        string connStr =
+            $"Server=localhost;Port=3306;Database={BlogDatabaseName.DbName};UserId=root;Password=123456"; // mysql 连接字符串
         optionsBuilder.UseMySql(connStr, ServerVersion.AutoDetect(connStr));
     }
 
