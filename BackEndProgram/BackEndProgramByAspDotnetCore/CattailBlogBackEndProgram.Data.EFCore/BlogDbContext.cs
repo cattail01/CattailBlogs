@@ -7,10 +7,16 @@ namespace CattailBlogBackEndProgram.Data.EFCore;
 /// </summary>
 public class BlogDbContext : DbContext
 {
+    /// <summary>
+    /// 博客文章
+    /// </summary>
     public DbSet<BlogArticle>? BlogArticles { get; set; }
+    
+    /// <summary>
+    /// 用户
+    /// </summary>
     public DbSet<User>? Users { get; set; }
-    public DbSet<ArticleAuthor>? ArticleAuthors { get; set; }
-
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         string connStr =

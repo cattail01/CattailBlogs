@@ -2,6 +2,7 @@
 using CattailBlogBackEndProgram.Service;
 using CattailBlogBackEndProgram.Utility;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace CattailBlogBackEndProgram.Web.Controllers;
 
@@ -45,7 +46,25 @@ public class UserController : ControllerBase
     {
         var user = await UserService.AddUserAsync(userRegisterDto);
         var resultMessage = user.UserName + "注册成功";
+        Logger.LogInformation(resultMessage);
         return ResultHelper.Success(resultMessage, user);
+    }
+    
+    /// <summary>
+    /// 在服务器缓存中删除验证码
+    /// </summary>
+    /// <param name="t"></param>
+    [HttpGet]
+    public IActionResult RemoveVerificationCodeInServerMemory(string t)
+    {
+        MemoryHelperSingleton.Instance.MemoryCache?.Remove(t);  // 在缓存中删除
+        if(MemoryHelperSingleton.Instance.MemoryCache.Get(t) != null)  // 检查是否删除成功
+        {
+            Logger.LogError("删除缓存中验证码失败"); // 打印错误信息;
+            return BadRequest(ResultHelper.Error("删除缓存中验证码失败"));
+        }
+        Logger.LogInformation("删除缓存中验证码成功"); // 打印信息;
+        return Ok(ResultHelper.Success("删除缓存中验证码成功"));
     }
 
     /// <summary>
@@ -60,9 +79,8 @@ public class UserController : ControllerBase
             await VerificationCodeHelperSingleton.Instance
                 .CreateVerificationCodeTextureAsync(verificationCode); // 生成验证码图片
         MemoryHelperSingleton.Instance.SetMemory(t, verificationCode, 1); // 数据存放到缓存
-        Logger.LogInformation(t + "验证码" + verificationCode); // 打印信息
-        // return ResultHelper.Success(File(textureBytes, @"image/jpeg"));  // 返回图片数据
-        return File(textureBytes, @"image/jpeg");
+        Logger.LogInformation(t + "验证码" + verificationCode); // 打印日志
+        return File(textureBytes, @"image/jpeg");  // 返回图片数据
     }
 
     /// <summary>

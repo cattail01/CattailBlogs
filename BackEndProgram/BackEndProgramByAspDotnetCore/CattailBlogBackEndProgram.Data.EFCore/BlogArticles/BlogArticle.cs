@@ -31,4 +31,12 @@ public class BlogArticle
     public int Status { get; set; }
 
     public int Tag { get; set; }
+
+    /// <summary>
+    /// 作者id
+    /// </summary>
+    /// <remarks>
+    /// 约定外键
+    /// </remarks>
+    public Guid AuthorId { get; set; }
 }

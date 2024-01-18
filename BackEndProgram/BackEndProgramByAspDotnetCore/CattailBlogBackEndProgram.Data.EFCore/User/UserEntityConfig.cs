@@ -77,10 +77,16 @@ public class UserEntityConfig : IEntityTypeConfiguration<User>
         
         // 配置性别
         builder.Property(user => user.Gender)
+            .HasColumnName(nameof(User.Gender)) // 定义名称
+            .IsRequired() // 定义not null 
             ;
+        // todo 第一次再efcore中使用enum，等表建好，看看具体类型究竟如何，然后再考虑默认值的问题
         
         // 配置账户状态
         builder.Property(user => user.Status)
+            .HasColumnName(nameof(User.Status)) // 定义名称
+            .IsRequired() // 定义not null
             ;
+        // todo 下面也是
     }
 }

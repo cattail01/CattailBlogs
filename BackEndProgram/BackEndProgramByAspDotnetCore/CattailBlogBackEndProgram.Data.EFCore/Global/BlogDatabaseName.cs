@@ -19,10 +19,6 @@ public static class BlogDatabaseName
     /// 博客文章表名称
     /// </summary>
     public static readonly string ArticleTableName = $"{DbName}_{nameof(BlogArticle)}s";
-
-    /// <summary>
-    /// 博客作者关系表
-    /// </summary>
-    public static readonly string ArticleAuthorTableName = $"{DbName}_{nameof(ArticleAuthor)}s";
+    
 }
 

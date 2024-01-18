@@ -7,13 +7,16 @@ namespace CattailBlogBackEndProgram.Utility;
 /// </summary>
 public class MemoryHelperSingleton: SingletonBase<MemoryHelperSingleton>
 {
-    private readonly IMemoryCache? _memoryCache = null;
+    /// <summary>
+    /// 缓存
+    /// </summary>
+    public IMemoryCache? MemoryCache { get; private set; }
 
     public MemoryHelperSingleton()
     {
-        if (_memoryCache is null)
+        if (MemoryCache is null)
         {
-            _memoryCache = new MemoryCache(new MemoryCacheOptions());
+            MemoryCache = new MemoryCache(new MemoryCacheOptions());
         }
     }
 
@@ -26,7 +29,7 @@ public class MemoryHelperSingleton: SingletonBase<MemoryHelperSingleton>
     /// <typeparam name="T"></typeparam>
     public void SetMemory<T>(string key, T value, int expireMins)
     {
-        _memoryCache?.Set(key, value, TimeSpan.FromMinutes(expireMins));
+        MemoryCache?.Set(key, value, TimeSpan.FromMinutes(expireMins));
     }
 
     /// <summary>
@@ -37,6 +40,6 @@ public class MemoryHelperSingleton: SingletonBase<MemoryHelperSingleton>
     /// <returns></returns>
     public TResult? GetMemory<TResult>(string key)
     {
-        return _memoryCache.Get<TResult>(key);
+        return MemoryCache.Get<TResult>(key);
     }
 }

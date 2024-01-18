@@ -11,6 +11,7 @@
     <ItemGroup>
       <ProjectReference Include="..\CattailBlogBackEndProgram.Data.EFCore\CattailBlogBackEndProgram.Data.EFCore.csproj" />
       <ProjectReference Include="..\CattailBlogBackEndProgram.Data.SqlSugar\CattailBlogBackEndProgram.Data.SqlSugar.csproj" />
+      <ProjectReference Include="..\CattailBlogBackEndProgram.Log.NLog\CattailBlogBackEndProgram.Log.NLog.csproj" />
       <ProjectReference Include="..\CattailBlogBackEndProgram.Utility\CattailBlogBackEndProgram.Utility.csproj" />
     </ItemGroup>
 
