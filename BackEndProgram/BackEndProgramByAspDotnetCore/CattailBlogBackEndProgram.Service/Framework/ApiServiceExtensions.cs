@@ -9,7 +9,7 @@ namespace CattailBlogBackEndProgram.Service;
 public static class ApiServiceExtensions
 {
     // 通过反射获取类类型
-    private static List<Type> GetAllClassTypeByAttribute<TAttribute>() where  TAttribute : Attribute
+    private static List<Type> GetAllClassTypeByAttribute<TAttribute>() where TAttribute : Attribute
     {
         var serviceTypes = Assembly.GetExecutingAssembly() // 包含当前执行的代码的程序集
             .GetTypes() // 获取类型
@@ -19,8 +19,9 @@ public static class ApiServiceExtensions
         return serviceTypes;
     }
 
-    // 通过判断lifetime获取注入类型
-    private static void InjectServiceByLifeTime(IServiceCollection service, ServiceLifetime? lifetime, Type serviceClass)
+    // 判断lifetime注入类
+    private static void InjectServiceByLifeTime(IServiceCollection service, ServiceLifetime? lifetime,
+        Type serviceClass)
     {
         switch (lifetime)
         {
@@ -35,12 +36,12 @@ public static class ApiServiceExtensions
                 break;
         }
     }
-    
-    // 使用接口的通过判断lifetime获取注入类型
+
+    // 使用接口的判断lifetime获取注入类
     private static void InjectServiceByLifeTime(IServiceCollection service, ServiceLifetime? lifetime,
         Type[] serviceInterfaces, Type serviceClass)
     {
-        foreach(var serviceInterface in serviceInterfaces)
+        foreach (var serviceInterface in serviceInterfaces)
         {
             switch (lifetime)
             {
@@ -69,12 +70,9 @@ public static class ApiServiceExtensions
             var lifetime = apiServiceAttribute?.DiLifetime; // 获取该类上 api service上的定义生命周期
             var isInjectClass = apiServiceAttribute?.IsInjectClass; // 获取该类上 api service上的是否注入类约定
             // 通过接口进行依赖注入
-            foreach (var @interface in interfaces)
-            {
-                InjectServiceByLifeTime(service, lifetime, interfaces, impl);
-            }
+            InjectServiceByLifeTime(service, lifetime, interfaces, impl);
             // 注入该类本身
-            if(isInjectClass is not null || isInjectClass == true)
+            if (isInjectClass is not null || isInjectClass == true)
             {
                 InjectServiceByLifeTime(service, lifetime, impl);
             }
