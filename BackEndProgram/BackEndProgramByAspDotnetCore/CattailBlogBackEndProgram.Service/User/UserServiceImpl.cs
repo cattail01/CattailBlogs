@@ -3,6 +3,10 @@ using CattailBlogBackEndProgram.Data.SqlSugar;
 
 namespace CattailBlogBackEndProgram.Service;
 
+/// <summary>
+/// 用户服务实现
+/// </summary>
+[ApiService]
 public class UserServiceImpl: IUserService
 {
     private IMapper Mapper { get; set; }

@@ -26,8 +26,8 @@ public class CustomJwtService : ICustomJwtService
     // 创建jwt token
     private SecurityToken CreateToken(Claim[] claims)
     {
-        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtOptions.SecurityKey)); // 设置加密key
-        SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256); // 设置加密类型
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtOptions.SecurityKey)); // 设置加密key
+        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256); // 设置加密类型
         // 生成jwt token
         var token = new JwtSecurityToken(
             issuer: JwtOptions.Issuer, // 配置发行者

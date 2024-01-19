@@ -31,6 +31,7 @@ public class GlobalExceptionHandlerMiddleware
 
         // other Exceptions
         context.Response.StatusCode = (int)HttpStatusCode.BadRequest;  // 返回 400 bad request
+        _logger.LogError(exception, exception.Message);  // 记录错误日志
         return context.Response.WriteAsJsonAsync(
             ResultHelper.Error(string.IsNullOrEmpty(exception.Message) ? "其他类型异常" : exception.Message));
     }
