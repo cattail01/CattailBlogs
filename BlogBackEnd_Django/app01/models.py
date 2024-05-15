@@ -41,7 +41,7 @@ class MyInfo(models.Model):
     site_url = models.CharField(max_length=128, verbose_name="网站链接")
     addr = models.CharField(max_length=64, verbose_name="地址", )
     bilibili_url = models.URLField(verbose_name="哔哩哔哩链接", null=True, blank=True)
-    github_url = models.URLField(verbose_name="GitHub链接", null=True, blank=True)
+    github_url = models.URLField(verbose_name="GitHub链接", null=True, blank=True, )
 
     class Meta:
         verbose_name_plural = "个人信息"
@@ -87,10 +87,11 @@ class UserInfo(AbstractUser):
         to_field="nid",
         on_delete=models.SET_NULL,
         verbose_name="用户头像",
-        null=True
+        null=True,
+        related_name="UserAvatars"
     )
     collects = models.ManyToManyField(
-        to="Avatars",
+        to="Articles",
         verbose_name="收藏的文章"
     )
 
@@ -122,7 +123,7 @@ class ArticleTags(models.Model):
     文章标签
     """
     nid = models.AutoField(primary_key=True)
-    title = models.CharField(verbose_name="文章标签")
+    title = models.CharField(verbose_name="文章标签", max_length=128)
 
     def __str__(self):
         return self.title
@@ -142,7 +143,8 @@ class Articles(models.Model):
         to="UserInfo",
         to_field="nid",
         verbose_name="文章作者",
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        null=True
     )
     source = models.CharField(max_length=64, verbose_name="来源", null=True, blank=True)
     source_link = models.URLField(verbose_name="来源链接", null=True, blank=True)
@@ -158,7 +160,7 @@ class Articles(models.Model):
     is_recommend = models.BooleanField(verbose_name="是否上推荐", default=False)
     recover = models.ForeignKey(
         to="Cover",
-        to_field=nid,
+        to_field="nid",
         on_delete=models.SET_NULL,
         verbose_name="文章封面",
         null=True,
@@ -296,7 +298,7 @@ class NavCategory(models.Model):
     导航分类
     """
     nid = models.AutoField(primary_key=True)
-    title = models.CharField(verbose_name="分类标题")
+    title = models.CharField(verbose_name="分类标题", max_length=128)
     icon = models.CharField(verbose_name="分类图标", max_length=64)
 
     def __str__(self):
