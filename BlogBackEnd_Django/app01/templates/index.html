@@ -4,14 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>cattail的个人博客</title>
-    <link rel="stylesheet" href="/static/css/reset.css">
-    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/reset.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
+
+<!-- region page -->
+
 <div id="app">
     <nav>
         <div class="left">
+            <a href="#">[[ message ]]</a>
             <a href="#">首页</a>
             <a href="#">新闻</a>
             <a href="#">心情</a>
@@ -27,6 +32,22 @@
     <footer>
     </footer>
 </div>
+
+<!-- endregion page -->
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                message: "hello, vue!"
+            }
+        }
+    })
+    app.config.compilerOptions.delimiters = ["[[", "]]"]
+    app.mount("#app")
+</script>
+
 </body>
 
 </html>
+
